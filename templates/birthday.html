@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Birthday Wishes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 50%, #6bcf7f 100%);
+            animation: gradient-shift 8s ease infinite;
+        }
+        @keyframes gradient-shift {
+            0%, 100% {
+                background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 50%, #6bcf7f 100%);
+            }
+            50% {
+                background: linear-gradient(135deg, #6bcf7f 0%, #ff6b6b 50%, #ffd93d 100%);
+            }
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 80px 60px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 600px;
+        }
+        h1 {
+            font-size: 42px;
+            color: #0066cc;
+            margin: 0;
+            animation: bounce 1s ease-in-out infinite;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        .emoji {
+            font-size: 50px;
+            margin: 20px 0;
+        }
+        .controls {
+            margin-top: 30px;
+        }
+        button {
+            padding: 12px 25px;
+            margin: 10px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .music-btn {
+            background-color: #667eea;
+            color: white;
+        }
+        .music-btn:hover {
+            background-color: #764ba2;
+        }
+        .logout-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        .logout-btn:hover {
+            background-color: #da190b;
+        }
+        .music-player {
+            margin-top: 20px;
+        }
+        audio {
+            width: 100%;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji">🎉 🎂</div>
+        <h1>🎉 Wish You Happy Birthday Balaji 🎂</h1>
+        <div class="emoji">🎊 🎁 🎊</div>
+        
+        <div class="music-player">
+            <p style="color: #666; font-size: 14px;">🎵 Background Music:</p>
+            <audio controls>
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        
+        <div class="controls">
+            <button class="logout-btn" onclick="location.href='/logout'">Logout</button>
+        </div>
+    </div>
+
+    <script>
+        // Auto-play music if possible
+        document.querySelector('audio').play().catch(function() {
+            console.log('Autoplay prevented by browser');
+        });
+    </script>
+</body>
+</html>
