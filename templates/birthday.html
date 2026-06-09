@@ -50,6 +50,10 @@
             margin: 20px 0;
         }
 
+        .btn-group {
+            margin-top: 25px;
+        }
+
         button {
             padding: 12px 25px;
             margin: 10px;
@@ -68,6 +72,15 @@
 
         .music-btn:hover {
             background-color: #764ba2;
+        }
+
+        .share-btn {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .share-btn:hover {
+            background-color: #1da851;
         }
 
         .logout-btn {
@@ -93,31 +106,26 @@
     <h1>🎉 Wish You Happy Birthday Balaji 🎂</h1>
     <div class="emoji">🎊 🎁 🎊</div>
 
-    <!-- 🎵 Background Music -->
-    <audio id="bg-music" loop>
-        <source src="{{ url_for('static', filename='whishes.mp3') }}" type="audio/mpeg">
+    <!-- 🎵 AUDIO -->
+    <audio id="bg-music" autoplay loop muted>
+        <source src="/static/whishes.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- ▶ CLICK TO PLAY MUSIC -->
-    <button class="music-btn" onclick="playMusic()">
-        ▶ Click to Start Music 🎵
-    </button>
+    <!-- 🎛️ BUTTONS -->
+    <div class="btn-group">
 
-    <div class="controls">
-        <p style="font-size: 14px; color: #333;">
-            Open: 
-            <a href="https://birthday-balaji.onrender.com" target="_blank">
-                https://birthday-balaji.onrender.com
-            </a>
-        </p>
+        <button class="music-btn" onclick="startMusic()">
+            ▶ Start Music 🎵
+        </button>
 
-        <button class="music-btn" onclick="shareOnWhatsApp()">
-            Share on WhatsApp
+        <button class="share-btn" onclick="shareOnWhatsApp()">
+            📤 Share
         </button>
 
         <button class="logout-btn" onclick="location.href='/logout'">
             Logout
         </button>
+
     </div>
 
 </div>
@@ -125,12 +133,26 @@
 <script>
     const music = document.getElementById("bg-music");
 
-    // 🎵 Play music on button click
-    function playMusic() {
+    // 🎵 Step 1: Try autoplay (silent allowed by browser)
+    window.addEventListener("load", () => {
+        music.play().catch(() => {
+            console.log("Autoplay blocked");
+        });
+    });
+
+    // 🔊 Step 2: Unlock sound on first user interaction
+    function startMusic() {
+        music.muted = false;
         music.play().catch(err => {
-            console.log("Audio play failed:", err);
+            console.log("Play failed:", err);
         });
     }
+
+    // 🔥 Optional: unlock on any click (backup method)
+    document.addEventListener("click", () => {
+        music.muted = false;
+        music.play();
+    }, { once: true });
 
     // 📤 WhatsApp share
     function shareOnWhatsApp() {
