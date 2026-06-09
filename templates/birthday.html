@@ -79,7 +79,6 @@
             background-color: #da190b;
         }
 
-        /* Hide audio (background music) */
         #bg-music {
             display: none;
         }
@@ -95,12 +94,12 @@
     <div class="emoji">🎊 🎁 🎊</div>
 
     <!-- Background Music -->
-    <audio id="bg-music" loop>
+    <audio id="bg-music" autoplay loop muted>
         <source src="{{ url_for('static', filename='whishes.mp3') }}" type="audio/mpeg">
     </audio>
 
-    <button class="music-btn" onclick="playMusic()">
-        ▶ Play Background Music
+    <button class="music-btn" onclick="enableMusic()">
+        ▶ Start Celebration 🎵
     </button>
 
     <div class="controls">
@@ -123,14 +122,23 @@
 </div>
 
 <script>
-    const appUrl = 'http://192.168.20.23:5000';
     const music = document.getElementById("bg-music");
+    const appUrl = 'https://birthday-balaji.onrender.com';
 
-    function playMusic() {
+    // BEST AUTOPLAY SIMULATION
+    function enableMusic() {
+        music.muted = false;
         music.play().catch(err => {
-            console.log("Autoplay blocked:", err);
+            console.log("Play blocked:", err);
         });
     }
+
+    // Try silent autoplay (allowed by browsers)
+    window.addEventListener("load", () => {
+        music.play().catch(() => {
+            console.log("Autoplay blocked");
+        });
+    });
 
     function shareOnWhatsApp() {
         const text = encodeURIComponent(
@@ -139,12 +147,11 @@
         window.open('https://wa.me/?text=' + text, '_blank');
     }
 
-    // Try autoplay (may be blocked by browser)
-    window.addEventListener("load", () => {
-        music.play().catch(() => {
-            console.log("Autoplay blocked");
-        });
-    });
+    // Start music on first user interaction (BEST UX)
+    document.addEventListener("click", () => {
+        music.muted = false;
+        music.play();
+    }, { once: true });
 </script>
 
 </body>
