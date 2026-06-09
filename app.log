@@ -1,0 +1,27 @@
+nohup: ignoring input
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.20.23:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 122-725-436
+127.0.0.1 - - [09/Jun/2026 09:56:57] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [09/Jun/2026 09:56:57] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [09/Jun/2026 09:57:07] "POST /login HTTP/1.1" 200 -
+127.0.0.1 - - [09/Jun/2026 09:57:42] "[32mPOST /login HTTP/1.1[0m" 302 -
+127.0.0.1 - - [09/Jun/2026 09:57:42] "GET /second HTTP/1.1" 200 -
+127.0.0.1 - - [09/Jun/2026 09:57:46] "GET /birthday HTTP/1.1" 200 -
+127.0.0.1 - - [09/Jun/2026 09:57:46] "[35m[1mGET /static/birthday.mp3 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [09/Jun/2026 09:57:46] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [09/Jun/2026 09:58:59] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [09/Jun/2026 09:59:06] "[32mPOST /login HTTP/1.1[0m" 302 -
+127.0.0.1 - - [09/Jun/2026 09:59:06] "GET /second HTTP/1.1" 200 -
+127.0.0.1 - - [09/Jun/2026 10:01:05] "GET /birthday HTTP/1.1" 200 -
+127.0.0.1 - - [09/Jun/2026 10:01:05] "[35m[1mGET /static/birthday.mp3 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [09/Jun/2026 10:01:05] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [09/Jun/2026 10:01:23] "[32mGET /logout HTTP/1.1[0m" 302 -
+127.0.0.1 - - [09/Jun/2026 10:01:23] "GET / HTTP/1.1" 200 -

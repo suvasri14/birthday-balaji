@@ -13,7 +13,7 @@ def login():
     user = request.form.get('user')
     pwd = request.form.get('pwd')
     
-    if user == "admin" and pwd == "1234":
+    if user == "Balaji" and pwd == "962001":
         session['logged_in'] = True
         return redirect(url_for('second_window'))
     else:

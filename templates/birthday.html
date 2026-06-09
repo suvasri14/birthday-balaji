@@ -91,22 +91,41 @@
         
         <div class="music-player">
             <p style="color: #666; font-size: 14px;">🎵 Background Music:</p>
-            <audio controls>
-                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            <audio id="birthday-audio" controls preload="auto">
+                <source src="{{ url_for('static', filename='birthday.mp3') }}" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
+            <div style="margin-top: 15px;">
+                <button class="music-btn" type="button" onclick="document.getElementById('birthday-audio').play()">
+                    Play Happy Birthday Song
+                </button>
+            </div>
         </div>
-        
+
         <div class="controls">
+            <p style="font-size: 14px; color: #333; margin-bottom: 10px;">
+                Open this URL in your browser: <a href="http://192.168.20.23:5000" target="_blank">http://192.168.20.23:5000</a>
+            </p>
+            <button class="music-btn" type="button" onclick="shareOnWhatsApp()">
+                Share on WhatsApp
+            </button>
             <button class="logout-btn" onclick="location.href='/logout'">Logout</button>
         </div>
     </div>
 
     <script>
+        const appUrl = 'http://192.168.20.23:5000';
+
         // Auto-play music if possible
         document.querySelector('audio').play().catch(function() {
             console.log('Autoplay prevented by browser');
         });
+
+        function shareOnWhatsApp() {
+            const text = encodeURIComponent('Happy Birthday! Check out this birthday page: ' + appUrl);
+            const whatsappUrl = 'https://wa.me/?text=' + text;
+            window.open(whatsappUrl, '_blank');
+        }
     </script>
 </body>
 </html>

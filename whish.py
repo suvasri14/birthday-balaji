@@ -16,7 +16,7 @@ def login():
     user = entry_user.get()
     pwd = entry_pass.get()
 
-    if user == "admin" and pwd == "1234":
+    if user == "Balaji" and pwd == "962001":
         login_window.destroy()
         open_second_window()
     else:
@@ -74,7 +74,7 @@ def open_third_window(parent):
     label = tk.Label(
         third,
         # text="🎉 Wish You Happy Birthday Balaji 🎂",
-        text="🎉 wel",
+        text=" wel",
         font=("Arial", 20, "bold"),
         fg="blue"
     )
