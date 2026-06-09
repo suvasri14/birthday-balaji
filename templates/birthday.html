@@ -93,20 +93,21 @@
     <h1>🎉 Wish You Happy Birthday Balaji 🎂</h1>
     <div class="emoji">🎊 🎁 🎊</div>
 
-    <!-- Background Music -->
-    <audio id="bg-music" autoplay loop muted>
+    <!-- 🎵 Background Music -->
+    <audio id="bg-music" loop>
         <source src="{{ url_for('static', filename='whishes.mp3') }}" type="audio/mpeg">
     </audio>
 
-    <button class="music-btn" onclick="enableMusic()">
-        ▶ Start Celebration 🎵
+    <!-- ▶ CLICK TO PLAY MUSIC -->
+    <button class="music-btn" onclick="playMusic()">
+        ▶ Click to Start Music 🎵
     </button>
 
     <div class="controls">
         <p style="font-size: 14px; color: #333;">
             Open: 
-            <a href="http://192.168.20.23:5000" target="_blank">
-                http://192.168.20.23:5000
+            <a href="https://birthday-balaji.onrender.com" target="_blank">
+                https://birthday-balaji.onrender.com
             </a>
         </p>
 
@@ -123,35 +124,21 @@
 
 <script>
     const music = document.getElementById("bg-music");
-    const appUrl = 'https://birthday-balaji.onrender.com';
 
-    // BEST AUTOPLAY SIMULATION
-    function enableMusic() {
-        music.muted = false;
+    // 🎵 Play music on button click
+    function playMusic() {
         music.play().catch(err => {
-            console.log("Play blocked:", err);
+            console.log("Audio play failed:", err);
         });
     }
 
-    // Try silent autoplay (allowed by browsers)
-    window.addEventListener("load", () => {
-        music.play().catch(() => {
-            console.log("Autoplay blocked");
-        });
-    });
-
+    // 📤 WhatsApp share
     function shareOnWhatsApp() {
         const text = encodeURIComponent(
-            'Happy Birthday! Check this out: ' + appUrl
+            "🎉 Happy Birthday! Check this surprise 🎂 https://birthday-balaji.onrender.com"
         );
-        window.open('https://wa.me/?text=' + text, '_blank');
+        window.open("https://wa.me/?text=" + text, "_blank");
     }
-
-    // Start music on first user interaction (BEST UX)
-    document.addEventListener("click", () => {
-        music.muted = false;
-        music.play();
-    }, { once: true });
 </script>
 
 </body>
