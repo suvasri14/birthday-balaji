@@ -91,11 +91,12 @@
         
         <div class="music-player">
             <p style="color: #666; font-size: 14px;">🎵 Background Music:</p>
+
             <audio id="birthday-audio" controls preload="auto">
-                <source src="{{ url_for('static', filename='whishes.m4a') }}" type="audio/mp4">
-                Your browser does not support the audio element.
+                <source src="{{ url_for('static', filename='whishes.mp3') }}" type="audio/mpeg">
+                Your browser does not support audio playback.
             </audio>
-            <div style="margin-top: 15px;">
+        </div>                
                 <button class="music-btn" type="button" onclick="document.getElementById('birthday-audio').play()">
                     Play Happy Birthday Song
                 </button>
