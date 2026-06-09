@@ -32,3 +32,5 @@ nohup: ignoring input
 127.0.0.1 - - [09/Jun/2026 10:32:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
 127.0.0.1 - - [09/Jun/2026 10:32:26] "[32mGET /logout HTTP/1.1[0m" 302 -
 127.0.0.1 - - [09/Jun/2026 10:32:26] "GET / HTTP/1.1" 200 -
+ * Detected change in '/home/azy-009/Documents/Untitled Folder/app.py', reloading
+ * Restarting with stat
